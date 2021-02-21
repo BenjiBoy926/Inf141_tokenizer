@@ -1,5 +1,6 @@
 import sys
 import re
+from collections import defaultdict
 
 
 # opens text file and look at each char, reconstructs text and returns a list of tokens. 
@@ -24,13 +25,10 @@ def tokenize(s):
 # runtime: O(n) looks through the list of tokens once
 def computeWordFrequencies(token_list):
     
-    token_count = {}
+    token_count = defaultdict(int)
 
     for t in token_list:
-        if t not in token_count:
-            token_count[t] = 1
-        else:
-            token_count[t] += 1
+        token_count[t] += 1
     
     return token_count
 
